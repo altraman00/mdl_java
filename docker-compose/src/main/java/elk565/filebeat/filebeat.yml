@@ -1,0 +1,11 @@
+filebeat:
+  prospectors:
+    - input_type: log
+      paths:  # 这里是容器内的path
+        - /tmp/app-webapi.log  # test_log就是在在docker-compose.yml只配置的./log下的log文件，写入es的log数据就是这个文件的内容
+  registry_file: /usr/share/filebeat/data/registry/registry  # （不要动）这个文件记录日志读取的位置，如果容器重启，可以从记录的位置开始取日志
+
+output:
+  elasticsearch:  # 我这里是输出到elasticsearch，也可以输出到logstash
+    index: "test_filebeat"  #  kibana中的索引
+    hosts: ["elasticsearch:9200"] # elasticsearch地址

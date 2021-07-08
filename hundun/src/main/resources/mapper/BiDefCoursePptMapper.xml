@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mdl.hundun.mapper.BiDefCoursePptMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mdl.hundun.entity.BiDefCoursePptEntity">
+        <id column="id" property="id" />
+        <result column="create_dt" property="createDt" />
+        <result column="deleted" property="deleted" />
+        <result column="modify_dt" property="modifyDt" />
+        <result column="sort_no" property="sortNo" />
+        <result column="version" property="version" />
+        <result column="course_id" property="courseId" />
+        <result column="json_detail" property="jsonDetail" />
+        <result column="ppt_url" property="pptUrl" />
+        <result column="video_id" property="videoId" />
+        <result column="video_name" property="videoName" />
+        <result column="def_course_id" property="defCourseId" />
+        <result column="course_name" property="courseName" />
+        <result column="teacher_name" property="teacherName" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, create_dt, deleted, modify_dt, sort_no, version, course_id, json_detail, ppt_url, video_id, video_name, def_course_id, course_name, teacher_name
+    </sql>
+
+</mapper>

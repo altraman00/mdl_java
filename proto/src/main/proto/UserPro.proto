@@ -1,0 +1,28 @@
+// 协议文件，请勿擅自修改，如有疑问或需要修改请联系backend@mdl.com.
+
+syntax = "proto3";
+
+package com.mdl.proto.model;
+
+option java_package = "com.mdl.proto.model";
+option java_outer_classname = "UserProto";
+
+message UserProResp {
+
+  int32 err_code = 1;
+
+  string err_msg = 2;
+
+  UserInfo user_info = 3;
+
+}
+
+message UserInfo {
+
+  string name = 1;
+
+  string age = 2;
+
+  string sex = 3;
+
+}

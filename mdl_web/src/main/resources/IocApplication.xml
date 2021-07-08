@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans>  
+
+  <bean id="E" class="com.mdl.ioc.England" />  
+
+  <bean id="S" class="com.mdl.ioc.Spain" />  
+
+  <bean id="P" class="com.mdl.ioc.Portugal" />  
+
+</beans> 

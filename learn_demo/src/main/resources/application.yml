@@ -1,0 +1,20 @@
+
+spring:
+  # 数据库
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/mobvoi-demo?useUnicode=true&useSSL=false
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+  jpa:
+    show-sql: true
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 1
+
+
+logging:
+  level:
+    com.sunlands.framework.mq: debug

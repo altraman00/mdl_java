@@ -1,0 +1,28 @@
+server:
+  port: 9000
+  tomcat:
+    uri-encoding: UTF-8
+
+#指定当前eureka客户端的注册地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:8700/eureka
+  instance:
+    hostname: localhost
+
+spring:
+  profiles:
+    active: local
+  application:
+    name: server-gateway
+
+zuul:
+  routes:
+    alikb-user:
+      path: /us/**
+      serviceId: app-user-service
+    alkb-order:
+      path: /os/**
+      serviceId: app-order-service
+

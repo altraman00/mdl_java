@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+    xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+    
+    
+    <!-- <context:annotation-config/>的作用是式地向 Spring 容器注册
+AutowiredAnnotationBeanPostProcessor、CommonAnnotationBeanPostProcessor、
+PersistenceAnnotationBeanPostProcessor 以及 RequiredAnnotationBeanPostProcessor 这 4 个BeanPostProcessor。
+注册这4个 BeanPostProcessor的作用，就是为了你的系统能够识别相应的注解。 -->
+    
+    <!-- <context:annotation-config/> 是用来打开注解的，但是此处没有加入该注解也能使用，具体原因不知道为啥 -->
+    
+    <!-- <context:annotation-config/> -->
+    
+    <context:component-scan base-package="com.mdl.model" />
+    
+</beans>

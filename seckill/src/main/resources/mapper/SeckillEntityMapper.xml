@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mdl.seckill.dao.SeckillMapper">
+
+  <!-- 通用查询映射结果 -->
+  <resultMap id="BaseResultMap" type="com.mdl.seckill.entity.SeckillEntity">
+    <id column="seckill_id" property="seckillId"/>
+    <result column="NAME" property="name"/>
+    <result column="number" property="number"/>
+    <result column="create_time" property="createTime"/>
+    <result column="start_time" property="startTime"/>
+    <result column="end_time" property="endTime"/>
+  </resultMap>
+
+  <!-- 通用查询结果列 -->
+  <sql id="Base_Column_List">
+        seckill_id, NAME, number, create_time, start_time, end_time
+    </sql>
+
+  <update id="reduceNumber">
+        UPDATE seckill
+        SET number = number-1
+        WHERE seckill_id=#{seckillId}
+        AND start_time <![CDATA[ <= ]]> #{killTime}
+        AND end_time >= #{killTime}
+        AND number > 0;
+    </update>
+
+  <select id="queryBySeckillId" resultType="com.mdl.seckill.entity.SeckillEntity">
+        SELECT *
+        FROM seckill
+        WHERE seckill_id=#{seckillId}
+    </select>
+
+  <select id="queryAll" resultType="com.mdl.seckill.entity.SeckillEntity">
+        SELECT *
+        FROM seckill
+        ORDER BY create_time DESC
+        limit #{offset},#{limit}
+    </select>
+
+</mapper>

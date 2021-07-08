@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mdl.hundun.mapper.BiDefCourseMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mdl.hundun.entity.BiDefCourseEntity">
+        <id column="id" property="id" />
+        <result column="create_dt" property="createDt" />
+        <result column="deleted" property="deleted" />
+        <result column="modify_dt" property="modifyDt" />
+        <result column="sort_no" property="sortNo" />
+        <result column="version" property="version" />
+        <result column="action_num" property="actionNum" />
+        <result column="allow_download" property="allowDownload" />
+        <result column="allow_play" property="allowPlay" />
+        <result column="allow_play_title" property="allowPlayTitle" />
+        <result column="buy_stat" property="buyStat" />
+        <result column="buy_time" property="buyTime" />
+        <result column="course_duration" property="courseDuration" />
+        <result column="course_id" property="courseId" />
+        <result column="course_json" property="courseJson" />
+        <result column="course_score" property="courseScore" />
+        <result column="course_status" property="courseStatus" />
+        <result column="cover_image" property="coverImage" />
+        <result column="cover_image_1x2" property="coverImage1x2" />
+        <result column="cover_image_2x1" property="coverImage2x1" />
+        <result column="cover_image_v2" property="coverImageV2" />
+        <result column="duration" property="duration" />
+        <result column="has_bespeak" property="hasBespeak" />
+        <result column="has_shared" property="hasShared" />
+        <result column="is_buy" property="isBuy" />
+        <result column="is_cxy_course" property="isCxyCourse" />
+        <result column="is_display_ask" property="isDisplayAsk" />
+        <result column="is_display_reward" property="isDisplayReward" />
+        <result column="is_elective" property="isElective" />
+        <result column="is_open_stake" property="isOpenStake" />
+        <result column="is_special_lesson" property="isSpecialLesson" />
+        <result column="left_top_image" property="leftTopImage" />
+        <result column="lesson_subject" property="lessonSubject" />
+        <result column="live_type" property="liveType" />
+        <result column="note_article_id" property="noteArticleId" />
+        <result column="origin_type" property="originType" />
+        <result column="parent_id" property="parentId" />
+        <result column="play_stat" property="playStat" />
+        <result column="ppt_json" property="pptJson" />
+        <result column="practice_id" property="practiceId" />
+        <result column="price" property="price" />
+        <result column="purchase_url" property="purchaseUrl" />
+        <result column="recommended_language" property="recommendedLanguage" />
+        <result column="school_time" property="schoolTime" />
+        <result column="silent1x2_ratio" property="silent1x2Ratio" />
+        <result column="sku_circle_image" property="skuCircleImage" />
+        <result column="sku_mode" property="skuMode" />
+        <result column="sku_name" property="skuName" />
+        <result column="sku_shadow_image" property="skuShadowImage" />
+        <result column="square_image" property="squareImage" />
+        <result column="standard_school_time" property="standardSchoolTime" />
+        <result column="state_control" property="stateControl" />
+        <result column="sub_title" property="subTitle" />
+        <result column="tag_name" property="tagName" />
+        <result column="teacher_head_image" property="teacherHeadImage" />
+        <result column="teacher_name" property="teacherName" />
+        <result column="teacher_position" property="teacherPosition" />
+        <result column="time" property="time" />
+        <result column="title" property="title" />
+        <result column="type" property="type" />
+        <result column="watch_icon" property="watchIcon" />
+        <result column="watch_times" property="watchTimes" />
+        <result column="yzmall_image" property="yzmallImage" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, create_dt, deleted, modify_dt, sort_no, version, action_num, allow_download, allow_play, allow_play_title, buy_stat, buy_time, course_duration, course_id, course_json, course_score, course_status, cover_image, cover_image_1x2, cover_image_2x1, cover_image_v2, duration, has_bespeak, has_shared, is_buy, is_cxy_course, is_display_ask, is_display_reward, is_elective, is_open_stake, is_special_lesson, left_top_image, lesson_subject, live_type, note_article_id, origin_type, parent_id, play_stat, ppt_json, practice_id, price, purchase_url, recommended_language, school_time, silent1x2_ratio, sku_circle_image, sku_mode, sku_name, sku_shadow_image, square_image, standard_school_time, state_control, sub_title, tag_name, teacher_head_image, teacher_name, teacher_position, time, title, type, watch_icon, watch_times, yzmall_image
+    </sql>
+
+    <!-- 查询暂时没有ppt链接的课程 -->
+    <select id="getCourseNonPpt" resultMap="BaseResultMap">
+        SELECT
+            c.*
+        FROM
+            bi_def_course c
+            LEFT JOIN ( SELECT DISTINCT p.course_id FROM bi_def_course_ppt p ) a ON a.course_id = c.course_id
+        WHERE
+            a.course_id IS NULL
+    </select>
+
+
+</mapper>

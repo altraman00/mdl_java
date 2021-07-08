@@ -1,0 +1,12 @@
+
+
+hbase:
+  zookeeper:
+    quorum: 10.1.205.217
+    property:
+      clientPort: 2181
+  table:
+    point: points
+server:
+  servlet:
+    context-path: /hbase

@@ -1,0 +1,63 @@
+server:
+  port: 8081
+  tomcat:
+    uri-encoding: utf-8
+
+# 读取本地配置文件
+spring:
+  profiles:
+    active: local
+  #当前服务名称
+  application:
+    name: app-order-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mb-air:3306/alkb-order?useUnicode=true&useSSL=false
+    username: root
+    password: 123456
+  jpa:
+    show-sql: true
+
+
+##---------------------------------------------------读取git的相关配置 start------------------------------------------------
+
+## 方式1
+## 走config-server，读取git的config配置信息
+#spring:
+#  profiles:
+#    active: local
+#  application:
+#    name: app-order-service
+#  cloud:
+#    config:
+#      profile: local
+#      label: master
+#      discovery:
+#        enabled: true
+#        service-id: server-config
+
+## 方式二
+## 不走config-server，直接读取git的config配置信息
+#spring:
+#  application:
+#    name: server-config
+#  profiles:
+#    active: dev
+#  cloud:
+#    config:
+#      profile: local
+#      server:
+#        git:
+#          uri: https://github.com/altraman00/alkb-cloud-config.git
+#          username: 869118563@qq.com
+#          password: xxxxxxx
+
+#---------------------------------------------------读取git的相关配置 end------------------------------------------------
+
+# 指定当前eureka客户端的注册地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:8700/eureka
+  instance:
+    hostname: localhost
