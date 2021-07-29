@@ -11,9 +11,9 @@
   </parent>
 
   <groupId>com.mdl</groupId>
-  <artifactId>influxdb</artifactId>
+  <artifactId>influxdb2</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>influxdb</name>
+  <name>influxdb2</name>
 
   <description>Demo project for Spring Boot</description>
 
@@ -45,13 +45,6 @@
       <optional>true</optional>
     </dependency>
 
-<!--    &lt;!&ndash; influxdb&ndash;&gt;-->
-<!--    <dependency>-->
-<!--      <groupId>com.influxdb</groupId>-->
-<!--      <artifactId>influxdb-client-java</artifactId>-->
-<!--      <version>2.0.0</version>-->
-<!--    </dependency>-->
-
     <!-- influxdb-->
     <dependency>
       <groupId>org.influxdb</groupId>
@@ -60,8 +53,6 @@
     </dependency>
 
   </dependencies>
-
-
 
   <build>
     <plugins>

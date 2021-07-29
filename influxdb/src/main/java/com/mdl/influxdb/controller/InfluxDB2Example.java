@@ -1,4 +1,4 @@
-//package com.mobvoi.influxdb.controller;
+//package com.mdl.influxdb.controller;
 //
 //import com.influxdb.annotations.Column;
 //import com.influxdb.annotations.Measurement;
@@ -13,7 +13,7 @@
 //
 ///**
 // * @Project : influxdb
-// * @Package Name : com.mobvoi.influxdb
+// * @Package Name : com.mdl.influxdb
 // * @Author : xiekun
 // * @Desc :
 // * @Create Date : 2021年06月11日 18:12

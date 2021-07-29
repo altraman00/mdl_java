@@ -29,6 +29,10 @@ public class BiUserOrderServiceImpl implements BiUserOrderService {
 
   @Override
   public List<BiUserOrderEntity> findByUserId(String userId) {
+
+    BiUserOrderEntity entity = new BiUserOrderEntity();
+    userOrderRepository.saveAndFlush(entity);
+
     return userOrderRepository.findByUserId(userId);
   }
 }

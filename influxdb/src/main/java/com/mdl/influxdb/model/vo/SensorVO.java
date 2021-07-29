@@ -2,19 +2,23 @@ package com.mdl.influxdb.model.vo;
 
 import lombok.Builder;
 import lombok.Data;
+import org.influxdb.annotation.Column;
+import org.influxdb.annotation.Measurement;
 
 /**
- * @Project : influxdb
- * @Package Name : com.mdl.influxdb.model.tichealth.vo
+ * @Project : demo
+ * @Package Name : com.mdl.influxdb.model
  * @Author : xiekun
- * @Desc :
- * @Create Date : 2021年06月15日 17:55
+ * @Desc : InfluxDB中Tag只能是字符串类型，tag有索引，fields没有索引
+ * @Create Date : 2021年07月12日 16:55
  * ----------------- ----------------- -----------------
  */
 
 @Builder
 @Data
-public class HealthPointVO {
+public class SensorVO {
+
+  private String time;
 
   private String tWwid;
 
@@ -31,5 +35,9 @@ public class HealthPointVO {
   private String fKey;
 
   private int fValue;
+
+  private float fValue2;
+
+  private double fValue3;
 
 }

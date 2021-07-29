@@ -3,19 +3,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
   <packaging>pom</packaging>
-  <modules>
-    <module>hbase</module>
-  </modules>
+
   <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.0.0.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.mobvoi</groupId>
-    <artifactId>mdl_demo</artifactId>
+    <groupId>com.mdl</groupId>
+    <artifactId>mdl_java</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>mdl_demo</name>
+    <name>mdl_java</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

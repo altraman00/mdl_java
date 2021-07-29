@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @Project : influxdb
- * @Package Name : com.mobvoi.influxdb.controller
+ * @Package Name : com.mdl.influxdb.controller
  * @Author : xiekun
  * @Desc :
  * @Create Date : 2021年06月15日 17:48
@@ -31,9 +31,13 @@ public class TicHealthController {
   @Autowired
   private InfluxDBUtils influxDBUtils;
 
+  /**
+   * 写入单条数据
+   * @param healthPoint
+   * @return
+   */
   @PostMapping("write_point")
-  public String insertPoint(@RequestBody HealthPointVO healthPoint) {
-
+  public String writePoint(@RequestBody HealthPointVO healthPoint) {
     HealthPoint healthPointInfo = HealthPoint.builder()
         .tWwid(healthPoint.getTWwid())
         .tAccountId(healthPoint.getTAccountId())
@@ -44,17 +48,39 @@ public class TicHealthController {
         .fValue(healthPoint.getFValue())
         .build();
 
-    Point point = Point.measurementByPOJO(healthPointInfo.getClass())
-        .addFieldsFromPOJO(healthPointInfo)
-        .time(System.currentTimeMillis(), TimeUnit.MILLISECONDS)
-        .build();
-    influxDBUtils.write(point);
-
+    influxDBUtils.writeOne(healthPointInfo);
     return "success";
-
   }
 
-  @GetMapping("read_point")
+  /**
+   * 写入多条数据
+   * @param healthPoint
+   * @return
+   */
+  @PostMapping("write_list")
+  public String writePointList(@RequestBody HealthPointVO healthPoint) {
+    HealthPoint healthPointInfo = HealthPoint.builder()
+        .tWwid(healthPoint.getTWwid())
+        .tAccountId(healthPoint.getTAccountId())
+        .tDataType(healthPoint.getTDataType())
+        .tStartTime(healthPoint.getTStartTime())
+        .tEndTime(healthPoint.getTEndTime())
+        .tDataSourceName(healthPoint.getTDataSourceName())
+        .fValue(healthPoint.getFValue())
+        .build();
+
+    influxDBUtils.writeOne(healthPointInfo);
+    return "success";
+  }
+
+
+
+  /**
+   * 读取tags
+   * @param wwid
+   * @return
+   */
+  @GetMapping("read_point_tags")
   public String getPoint(@RequestParam("wwid") String wwid) {
     HashMap<String, String> params = new HashMap<String, String>(1) {{
       put("wwid", wwid);
