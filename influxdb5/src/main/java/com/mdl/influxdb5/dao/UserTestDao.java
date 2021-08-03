@@ -12,7 +12,7 @@ import com.mdl.influxdb5.proxy.IBaseDao;
  * ----------------- ----------------- -----------------
  */
 
-@InfluxDbHqlMapper(name = "user_test_dao")
+@InfluxDbHqlMapper
 public interface UserTestDao extends IBaseDao {
 
   String getById(Long id);

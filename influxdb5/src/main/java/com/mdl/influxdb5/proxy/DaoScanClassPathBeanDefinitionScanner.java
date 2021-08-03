@@ -1,7 +1,6 @@
 package com.mdl.influxdb5.proxy;
 
 import com.mdl.influxdb5.annotations.InfluxDbHqlMapper;
-import com.mdl.influxdb5.annotations.MyDaoScan;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.AnnotatedBeanDefinition;
 import org.springframework.beans.factory.config.BeanDefinitionHolder;

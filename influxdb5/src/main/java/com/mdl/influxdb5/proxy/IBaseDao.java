@@ -1,5 +1,7 @@
 package com.mdl.influxdb5.proxy;
 
+import com.mdl.influxdb5.annotations.InfluxDbHqlMapper;
+
 /**
  * @Project : demo
  * @Package Name : com.mdl.influxdb5.proxydemo2
@@ -8,6 +10,7 @@ package com.mdl.influxdb5.proxy;
  * @Create Date : 2021年08月03日 15:21
  * ----------------- ----------------- -----------------
  */
+
 public interface IBaseDao {
 
   /**
