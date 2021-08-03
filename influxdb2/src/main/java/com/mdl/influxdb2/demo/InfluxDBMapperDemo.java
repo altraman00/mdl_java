@@ -1,6 +1,5 @@
 package com.mdl.influxdb2.demo;
 
-import static com.mdl.influxdb2.demo.model.Constants.DATABASE;
 import static com.mdl.influxdb2.demo.model.Constants.DATABASE_PASSWORD;
 import static com.mdl.influxdb2.demo.model.Constants.DATABASE_URL;
 import static com.mdl.influxdb2.demo.model.Constants.DATABASE_USERNAME;
@@ -35,8 +34,8 @@ public class InfluxDBMapperDemo {
 
     logger.info("test the measurement" + h2OFeetMeasurements);
 
-    for (int i = 0; i < 1; i++) {
-      Thread.sleep(1000);
+    for (int i = 0; i < 10; i++) {
+//      Thread.sleep(1000);
       H2OFeetMeasurement h2OFeetMeasurement = new H2OFeetMeasurement();
 //      h2OFeetMeasurement.setTime(Instant.now());
 //      h2OFeetMeasurement.setTime(System.currentTimeMillis());
@@ -46,12 +45,12 @@ public class InfluxDBMapperDemo {
       influxDBMapper.save(h2OFeetMeasurement);
     }
 
-    List<H2OFeetMeasurement> measurements = influxDBMapper.query(H2OFeetMeasurement.class);
-
-    logger.info(JSONUtils.objectToJson(measurements));
-
-    H2OFeetMeasurement h2OFeetMeasurement1 = measurements.get(measurements.size() - 1);
-    assert h2OFeetMeasurement1.getLevelDescription().equals("Just a test");
+//    List<H2OFeetMeasurement> measurements = influxDBMapper.query(H2OFeetMeasurement.class);
+//
+//    logger.info(JSONUtils.objectToJson(measurements));
+//
+//    H2OFeetMeasurement h2OFeetMeasurement1 = measurements.get(measurements.size() - 1);
+//    assert h2OFeetMeasurement1.getLevelDescription().equals("Just a test");
   }
 
 }

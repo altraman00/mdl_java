@@ -29,11 +29,6 @@ public class OrderPaymentController {
   @Autowired
   private InfluxMapper influxMapper;
 
-//  @Autowired
-//  public void setInfluxMapper(InfluxMapper influxMapper) {
-//    this.influxMapper = influxMapper;
-//  }
-
   @PostMapping("/save")
   public BaseResponse<?> save(@RequestBody FitnessVO fitnessVO) {
     FitnessPoint point = new FitnessPoint();
