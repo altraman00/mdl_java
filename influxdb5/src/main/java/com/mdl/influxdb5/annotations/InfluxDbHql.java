@@ -2,30 +2,30 @@ package com.mdl.influxdb5.annotations;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
-import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
  * @Project : demo
- * @Package Name : com.mdl.influxdb5.annotations
+ * @Package Name : com.mdl.influxdb4.annotations
  * @Author : xiekun
  * @Desc :
- * @Create Date : 2021年08月03日 18:10
+ * @Create Date : 2021年07月30日 17:10
  * ----------------- ----------------- -----------------
  */
 
-@Documented
-@Inherited
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.TYPE, ElementType.METHOD})
-public @interface InfluxDbHqlMapper {
+@Target({ElementType.METHOD, ElementType.ANNOTATION_TYPE})
+@Documented
+public @interface InfluxDbHql {
 
-  String name() default "";
+    String value() default "";
 
-  String database() default "";
+//    String database() default "";
+//
+//    String measurement() default "";
 
-  String measurement() default "";
+    boolean nativeQuery() default false;
 
 }

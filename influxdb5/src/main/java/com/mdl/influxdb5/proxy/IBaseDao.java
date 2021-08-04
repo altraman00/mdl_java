@@ -1,6 +1,6 @@
 package com.mdl.influxdb5.proxy;
 
-import com.mdl.influxdb5.annotations.InfluxDbHqlMapper;
+import com.mdl.influxdb5.measurements.TicBaseMeasurement;
 
 /**
  * @Project : demo
@@ -11,16 +11,12 @@ import com.mdl.influxdb5.annotations.InfluxDbHqlMapper;
  * ----------------- ----------------- -----------------
  */
 
-public interface IBaseDao {
+public interface IBaseDao<T extends TicBaseMeasurement> {
 
-  /**
-   * 模拟查询
-   */
+  void save(T t);
+
   void get(Long id);
 
-  /**
-   * 模拟删除
-   */
   void delete(Long id);
 
 }

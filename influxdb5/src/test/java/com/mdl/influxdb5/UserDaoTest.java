@@ -2,6 +2,7 @@ package com.mdl.influxdb5;
 
 import com.mdl.influxdb5.dao.UserTestDao;
 import com.mdl.influxdb5.annotations.MyDaoScan;
+import javax.annotation.Resource;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,7 +20,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class UserDaoTest {
 
-  @Autowired
+  @Resource
   private UserTestDao userTestDao;
 
   @Test
