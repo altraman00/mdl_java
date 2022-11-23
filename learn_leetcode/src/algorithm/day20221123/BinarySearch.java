@@ -41,13 +41,6 @@ public class BinarySearch {
         int result = -1;
         while (left < right) {
             int mid = left + (right - left) / 2;
-//            if ((right - left == 1) && (right == nums.length - 1)) {
-//                mid = left + 1;
-//            } else if (right - left == 1 && left == 0) {
-//
-//            } else {
-//                mid = left + (right - left) / 2;
-//            }
             int midVal = nums[mid];
             System.out.println("left=" + left + " right=" + right + " mid=" + mid + " midVal=" + midVal);
 
